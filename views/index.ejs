@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet"  href="../public/calendar.css">
+  <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Document</title>
+</head>
+<body onload="RendorDate()" onload="DisplayClock()">
+  <div class="container">
+  <div class="row">
+    <div class="col-md-6">
+  <h1>Schedule</h1>
+   <!-- <div class="wrapper"> -->
+    <div class="calendar">
+      <div class="month">
+        <div class="prev" onclick="moveDate('prev')">
+          <span>&#10094</span>
+        </div>
+        <div>
+          <h2 id="month">june</h2>
+          <p id="date_str"></p>
+        </div>
+        <div class="next" onclick="moveDate('next')">
+          <span>&#10095</span>
+        </div>
+      </div>
+      <div class="weekends">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
+      <div class="days" onclick="showEvent()">
+        
+      </div>
+
+    </div>
+    <div class="ml-46" id="clock">jjjj</div>
+    <br>
+    <div class="ml-46">
+      <button data-toggle="modal" data-target="#myModal">Make Events</button>
+    </div>
+    <!-- MOdel FOr pop up-->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Make Event</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="email">Event</label>
+                    <input type="text" id="event" class="form-control" >
+                  </div>
+                  <div class="form-group">
+                    <label >Date:</label>
+                    <input type="datetime-local" id="date" class="form-control">
+                  </div>
+                  <div class="form-group">
+                      <label for="pwd">Time:</label>
+                      <input type="time"  id="time" class="form-control">
+                  </div>
+                  <button type="submit" class="btn btn-primary"  onclick="addeve()">Submit</button>
+                </form>
+            </div>
+      
+      
+          </div>
+        </div>
+      </div>
+  </div>
+    
+  <div class="col-md-6">
+
+  <div>
+      <table class="table" onload="fetchEve()">
+        <div><b>Your Events</b></div>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Events</th>
+            </tr>
+          </thead>
+          <tbody id="eventTableBody">
+            <!-- <tr>
+              <td>John</td>
+              <td>Doe</td>
+              <td>john@example.com</td>
+            </tr>
+            <tr>
+              <td>Mary</td>
+              <td>Moe</td>
+              <td>mary@example.com</td>
+            </tr>
+            <tr>
+              <td>July</td>
+              <td>Dooley</td>
+              <td>july@example.com</td> -->
+            <!-- </tr> -->
+          </tbody>
+        </table>
+    
+  </div>
+</div>
+</div>
+  
+</div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="/public/javascripts/axios.js"></script>
+  <script src="/public/javascripts/calender.js"></script>
+  <script src="/public/javascripts/clock.js"></script>
+  <script src="/public/javascripts/addEve.js"></script>
+  <script src="/public/javascripts/fetchEve.js"></script>
+</body>
+</html>
